@@ -1,9 +1,6 @@
-package org.priv.playground;
+package org.priv.playground.day1;
 
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
 public class Anagram {
 
     private List<String> places = Arrays.asList("eat", "ate", "apt", "pat", "tea", "now");

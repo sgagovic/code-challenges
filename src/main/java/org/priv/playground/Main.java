@@ -1,5 +1,7 @@
 package org.priv.playground;
 
+import org.priv.playground.day1.Anagram;
+
 /**
  * Hello world!
  *
