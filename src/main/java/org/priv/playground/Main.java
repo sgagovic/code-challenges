@@ -4,6 +4,7 @@ import org.priv.playground.day1.Anagram;
 import org.priv.playground.day2.Permutation;
 import org.priv.playground.day3.CompatibleJobs;
 import org.priv.playground.day3.Pair;
+import org.priv.playground.day4.StrobogrammaticNumber;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,7 +48,11 @@ public class Main
         List<Pair> jobs= Arrays.asList(job1, job2, job3, job4, job5, job6, job7,job8);
 
         CompatibleJobs compatibleJobs = new CompatibleJobs();
-        compatibleJobs.findCompatibleJobs(jobs);
+        compatibleJobs.findLargestSubsetGreedy(jobs);
 
+    }
+
+    public static void day4(){
+        StrobogrammaticNumber strobogrammaticNumber = new StrobogrammaticNumber();
     }
 }

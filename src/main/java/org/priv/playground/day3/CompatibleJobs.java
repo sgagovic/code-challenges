@@ -66,4 +66,29 @@ public class CompatibleJobs {
 
         return compatibleJobs;
     }
+
+    public List<Pair> findLargestSubsetGreedy(List<Pair> jobs){
+        List<Pair> result = new ArrayList<>();
+
+        if (jobs == null || jobs.isEmpty()) {
+            return result;
+        }
+
+        Collections.sort(jobs, Comparator.comparingInt((Pair a) -> a.start).thenComparingInt(a -> a.end));
+
+        Pair prevJob = jobs.get(0);
+        result.add(prevJob);
+
+        for (int i = 1; i < jobs.size(); i++) {
+            Pair currentJob = jobs.get(i);
+            // If the current job doesn't overlap with the previous job, add it to the result
+            if (currentJob.start >= prevJob.end) {
+                result.add(currentJob);
+                prevJob = currentJob;
+            }
+        }
+
+        return result;
+
+    }
 }
