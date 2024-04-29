@@ -1,5 +1,8 @@
 package org.priv.playground.day3;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /*
@@ -27,6 +30,40 @@ public class CompatibleJobs {
     //take second job from 1-4, next job that can start is from 4-7 and and the first one that can start after is from 8-11
 
     public List<Pair> findCompatibleJobs(List<Pair> jobs){
-        return null;
+
+        List<Pair> compatibleJobs = new ArrayList<>();
+        List<Pair> compatibleJobsTemp = new ArrayList<>();
+        int currentSubsetLength = 0;
+        int newSubsetLength = 0;
+
+        //First sort all jobs so they come chronically
+        Collections.sort(jobs, Comparator.comparingInt((Pair a) -> a.start).thenComparingInt(a -> a.end));
+
+        for(int i=0; i<jobs.size(); i++){
+            int end = jobs.get(i).end;
+            compatibleJobsTemp.add(jobs.get(i));
+
+            //give next that starts after 6 or at 6, you can maybe filter them out
+
+            for(int j=i+1; j<jobs.size(); j++){
+                int nextStart = jobs.get(j).start;
+
+                if(end <= nextStart){
+                    compatibleJobsTemp.add(jobs.get(j));
+                    currentSubsetLength = compatibleJobsTemp.size();
+                    end = jobs.get(j).end;
+                }
+            }
+
+            if(newSubsetLength <= currentSubsetLength){
+                compatibleJobs = compatibleJobsTemp;
+                newSubsetLength = compatibleJobs.size();
+            }
+
+            currentSubsetLength = 0;
+            compatibleJobsTemp = new ArrayList<>();
+        }
+
+        return compatibleJobs;
     }
 }
