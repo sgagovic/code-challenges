@@ -4,9 +4,9 @@ import org.priv.playground.day1.Anagram;
 import org.priv.playground.day2.Permutation;
 import org.priv.playground.day3.CompatibleJobs;
 import org.priv.playground.day3.Pair;
-import org.priv.playground.day4.StrobogrammaticNumber;
+import org.priv.playground.day4.BinaryTree;
+import org.priv.playground.day4.Node;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,7 +19,8 @@ public class Main
     public static void main( String[] args ) {
         //day1();
         //day2();
-        day3();
+        //day3();
+        day4();
     }
 
     public static void day1(){
@@ -53,6 +54,12 @@ public class Main
     }
 
     public static void day4(){
-        StrobogrammaticNumber strobogrammaticNumber = new StrobogrammaticNumber();
+        // create an object of BinaryTree
+        BinaryTree tree = new BinaryTree();
+
+        // create nodes of the tree
+        Node node1 = new Node(2);
+        Node node2 = new Node(42);
+        Node node3 = new Node(2);
     }
 }
